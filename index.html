@@ -29,34 +29,9 @@
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
       overflow-x: hidden;
-      cursor: none;
     }
 
-    /* Custom Cursor */
-    .cursor {
-      width: 12px; height: 12px;
-      background: var(--gold);
-      border-radius: 50%;
-      position: fixed;
-      top: 0; left: 0;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%,-50%);
-      transition: transform 0.1s ease, width 0.3s, height 0.3s, background 0.3s;
-      mix-blend-mode: difference;
-    }
-    .cursor-ring {
-      width: 36px; height: 36px;
-      border: 1px solid var(--gold);
-      border-radius: 50%;
-      position: fixed;
-      top: 0; left: 0;
-      pointer-events: none;
-      z-index: 9998;
-      transform: translate(-50%,-50%);
-      transition: transform 0.18s ease, width 0.3s, height 0.3s, opacity 0.3s;
-      opacity: 0.6;
-    }
+    
 
     /* Film Grain Overlay */
     .grain {
@@ -195,7 +170,6 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       border: none;
-      cursor: none;
       text-decoration: none;
       display: inline-block;
       transition: background 0.3s, transform 0.2s;
@@ -334,7 +308,6 @@
       position: relative;
       overflow: hidden;
       transition: border-color 0.3s, transform 0.3s;
-      cursor: none;
     }
     .skill-card::before {
       content: '';
@@ -632,7 +605,6 @@
       padding: 32px 48px;
       text-decoration: none;
       transition: border-color 0.3s, transform 0.3s;
-      cursor: none;
     }
     .contact-card:hover { border-color: var(--gold); transform: translateY(-4px); }
     .contact-card-icon { font-size: 1.5rem; margin-bottom: 12px; display: block; }
@@ -695,8 +667,6 @@
 </head>
 <body>
 
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursor-ring"></div>
   <div class="grain"></div>
 
   <!-- NAV -->
@@ -1089,18 +1059,6 @@
   </footer>
 
   <script>
-    // Custom cursor
-    const cursor = document.getElementById('cursor');
-    const ring = document.getElementById('cursor-ring');
-    document.addEventListener('mousemove', e => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top  = e.clientY + 'px';
-      setTimeout(() => {
-        ring.style.left = e.clientX + 'px';
-        ring.style.top  = e.clientY + 'px';
-      }, 60);
-    });
-
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
