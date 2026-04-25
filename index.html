@@ -292,75 +292,32 @@
       position: relative;
       background: var(--card);
       overflow: hidden;
-      cursor: none;
-      group: true;
     }
-    .video-card video {
+    .video-card iframe {
       width: 100%;
       aspect-ratio: 16/9;
       display: block;
-      object-fit: cover;
-      transition: transform 0.5s ease;
+      border: none;
     }
-    .video-card:hover video { transform: scale(1.03); }
-    .video-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(8,8,8,0.85) 0%, transparent 60%);
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 28px 28px;
-      opacity: 1;
-      pointer-events: none;
+    .video-info {
+      padding: 18px 22px;
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
     }
     .video-label {
       font-size: 0.6rem; letter-spacing: 3px;
       text-transform: uppercase; color: var(--gold);
-      margin-bottom: 6px;
+      margin-bottom: 4px; display: block;
     }
     .video-title {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.4rem; letter-spacing: 1px;
+      font-size: 1.3rem; letter-spacing: 1px;
       color: var(--white);
     }
-    .play-btn {
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%,-50%);
-      width: 56px; height: 56px;
-      background: var(--gold);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem;
-      opacity: 0;
-      transition: opacity 0.3s, transform 0.3s;
-      pointer-events: none;
-    }
-    .video-card:hover .play-btn { opacity: 1; transform: translate(-50%,-50%) scale(1.1); }
-    .video-card.playing .play-btn { display: none; }
-    .video-card.playing video { cursor: pointer; }
-    .video-controls {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 12px 16px;
-      display: flex; align-items: center; gap: 12px;
-      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .video-card.playing:hover .video-controls { opacity: 1; }
-    .ctrl-btn {
-      background: none; border: none;
-      color: var(--white); font-size: 0.9rem;
-      cursor: pointer; padding: 4px;
-      transition: color 0.2s;
-    }
-    .ctrl-btn:hover { color: var(--gold); }
-    .progress-bar {
-      flex: 1; height: 3px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 2px; cursor: pointer; position: relative;
-    }
-    .progress-fill {
-      height: 100%; background: var(--gold);
-      border-radius: 2px; width: 0%;
-      transition: width 0.1s linear;
+    .video-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem; color: var(--border);
     }
 
     /* ── SKILLS ── */
@@ -819,66 +776,50 @@
     <div class="work-grid">
 
       <!-- Video 1 -->
-      <div class="video-card reveal" onclick="togglePlay(this)">
-        <video src="sped_ramp_2__1.mp4" preload="metadata" playsinline loop></video>
-        <div class="video-overlay">
-          <span class="video-label">Speed Ramp Edit</span>
-          <span class="video-title">Speed Ramp</span>
-        </div>
-        <div class="play-btn">▶</div>
-        <div class="video-controls">
-          <button class="ctrl-btn" onclick="event.stopPropagation(); toggleMute(this)">🔇</button>
-          <div class="progress-bar" onclick="event.stopPropagation(); seekVideo(event, this)">
-            <div class="progress-fill"></div>
+      <div class="video-card reveal">
+        <iframe src="https://drive.google.com/file/d/1gzBFkmxLy3ODomKhjYWlUMqVTQ7K_Trn/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <div class="video-info">
+          <div>
+            <span class="video-label">Speed Ramp Edit</span>
+            <span class="video-title">Speed Ramp</span>
           </div>
+          <span class="video-num">01</span>
         </div>
       </div>
 
       <!-- Video 2 -->
-      <div class="video-card reveal reveal-delay-1" onclick="togglePlay(this)">
-        <video src="lokesh_mt_15_1.mp4" preload="metadata" playsinline loop></video>
-        <div class="video-overlay">
-          <span class="video-label">Brand Edit</span>
-          <span class="video-title">MT 15</span>
-        </div>
-        <div class="play-btn">▶</div>
-        <div class="video-controls">
-          <button class="ctrl-btn" onclick="event.stopPropagation(); toggleMute(this)">🔇</button>
-          <div class="progress-bar" onclick="event.stopPropagation(); seekVideo(event, this)">
-            <div class="progress-fill"></div>
+      <div class="video-card reveal reveal-delay-1">
+        <iframe src="https://drive.google.com/file/d/1bupjoacCB1zenIYm1hU_QArtN8xcJo4z/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <div class="video-info">
+          <div>
+            <span class="video-label">Brand Edit</span>
+            <span class="video-title">MT 15</span>
           </div>
+          <span class="video-num">02</span>
         </div>
       </div>
 
       <!-- Video 3 -->
-      <div class="video-card reveal reveal-delay-2" onclick="togglePlay(this)">
-        <video src="Comp_1_2.mp4" preload="metadata" playsinline loop></video>
-        <div class="video-overlay">
-          <span class="video-label">Motion Graphic</span>
-          <span class="video-title">Aprilia RS 457</span>
-        </div>
-        <div class="play-btn">▶</div>
-        <div class="video-controls">
-          <button class="ctrl-btn" onclick="event.stopPropagation(); toggleMute(this)">🔇</button>
-          <div class="progress-bar" onclick="event.stopPropagation(); seekVideo(event, this)">
-            <div class="progress-fill"></div>
+      <div class="video-card reveal reveal-delay-2">
+        <iframe src="https://drive.google.com/file/d/1cwU5M3ImZAI97Z49aPoBIgainc9m7QLI/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <div class="video-info">
+          <div>
+            <span class="video-label">Automotive Edit</span>
+            <span class="video-title">Aprilia RS 457</span>
           </div>
+          <span class="video-num">03</span>
         </div>
       </div>
 
       <!-- Video 4 -->
-      <div class="video-card reveal reveal-delay-3" onclick="togglePlay(this)">
-        <video src="gt_650.mp4" preload="metadata" playsinline loop></video>
-        <div class="video-overlay">
-          <span class="video-label">Automotive Edit</span>
-          <span class="video-title">GT 650</span>
-        </div>
-        <div class="play-btn">▶</div>
-        <div class="video-controls">
-          <button class="ctrl-btn" onclick="event.stopPropagation(); toggleMute(this)">🔇</button>
-          <div class="progress-bar" onclick="event.stopPropagation(); seekVideo(event, this)">
-            <div class="progress-fill"></div>
+      <div class="video-card reveal reveal-delay-3">
+        <iframe src="https://drive.google.com/file/d/14-5_AAF7gnZhL39a16symrnb7lLJTz-y/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <div class="video-info">
+          <div>
+            <span class="video-label">Automotive Edit</span>
+            <span class="video-title">GT 650</span>
           </div>
+          <span class="video-num">04</span>
         </div>
       </div>
 
@@ -1173,33 +1114,67 @@
     function togglePlay(card) {
       const video = card.querySelector('video');
       if (video.paused) {
-        // Pause all others
-        document.querySelectorAll('.video-card video').forEach(v => {
-          if (v !== video) { v.pause(); v.closest('.video-card').classList.remove('playing'); }
+        // Pause all others first
+        document.querySelectorAll('.video-card').forEach(c => {
+          const v = c.querySelector('video');
+          if (v !== video) { v.pause(); v.muted = true; c.classList.remove('playing'); }
         });
-        video.play();
-        card.classList.add('playing');
+        // Unmute and play
+        video.muted = false;
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            card.classList.add('playing');
+          }).catch(() => {
+            // If audio blocked, play muted first then unmute
+            video.muted = true;
+            video.play().then(() => {
+              card.classList.add('playing');
+              video.muted = false;
+            });
+          });
+        }
         // Track progress
         video.addEventListener('timeupdate', () => {
           const fill = card.querySelector('.progress-fill');
-          if (fill && video.duration) fill.style.width = (video.currentTime / video.duration * 100) + '%';
+          if (fill && video.duration) {
+            fill.style.width = (video.currentTime / video.duration * 100) + '%';
+          }
         });
       } else {
         video.pause();
         card.classList.remove('playing');
       }
     }
+
     function toggleMute(btn) {
+      event.stopPropagation();
       const video = btn.closest('.video-card').querySelector('video');
       video.muted = !video.muted;
       btn.textContent = video.muted ? '🔇' : '🔊';
     }
+
     function seekVideo(e, bar) {
+      event.stopPropagation();
       const video = bar.closest('.video-card').querySelector('video');
+      if (!video.duration) return;
       const rect = bar.getBoundingClientRect();
-      const pct = (e.clientX - rect.left) / rect.width;
+      const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
       video.currentTime = pct * video.duration;
     }
+
+    // Show error if video fails to load
+    document.querySelectorAll('.video-card video').forEach(video => {
+      video.addEventListener('error', () => {
+        const overlay = video.closest('.video-card').querySelector('.video-overlay');
+        if (overlay) {
+          const label = overlay.querySelector('.video-label');
+          if (label) label.textContent = '⚠ Upload video to GitHub';
+        }
+      });
+      // Set muted false by default so audio works on click
+      video.muted = false;
+    });
 
 
     const bars = document.querySelectorAll('.skill-bar-fill');
