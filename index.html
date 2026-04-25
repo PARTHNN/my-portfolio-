@@ -281,6 +281,88 @@
       margin-bottom: 60px;
     }
 
+    /* ── WORK / VIDEOS ── */
+    #work { background: var(--black); }
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3px;
+    }
+    .video-card {
+      position: relative;
+      background: var(--card);
+      overflow: hidden;
+      cursor: none;
+      group: true;
+    }
+    .video-card video {
+      width: 100%;
+      aspect-ratio: 16/9;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .video-card:hover video { transform: scale(1.03); }
+    .video-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(8,8,8,0.85) 0%, transparent 60%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 28px 28px;
+      opacity: 1;
+      pointer-events: none;
+    }
+    .video-label {
+      font-size: 0.6rem; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .video-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem; letter-spacing: 1px;
+      color: var(--white);
+    }
+    .play-btn {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      width: 56px; height: 56px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+    }
+    .video-card:hover .play-btn { opacity: 1; transform: translate(-50%,-50%) scale(1.1); }
+    .video-card.playing .play-btn { display: none; }
+    .video-card.playing video { cursor: pointer; }
+    .video-controls {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 12px 16px;
+      display: flex; align-items: center; gap: 12px;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .video-card.playing:hover .video-controls { opacity: 1; }
+    .ctrl-btn {
+      background: none; border: none;
+      color: var(--white); font-size: 0.9rem;
+      cursor: pointer; padding: 4px;
+      transition: color 0.2s;
+    }
+    .ctrl-btn:hover { color: var(--gold); }
+    .progress-bar {
+      flex: 1; height: 3px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 2px; cursor: pointer; position: relative;
+    }
+    .progress-fill {
+      height: 100%; background: var(--gold);
+      border-radius: 2px; width: 0%;
+      transition: width 0.1s linear;
+    }
+
     /* ── SKILLS ── */
     #skills { background: var(--dark); }
     .skills-grid {
@@ -664,6 +746,7 @@
   <nav>
     <a href="#hero" class="nav-logo">PS ✦ EDITS</a>
     <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#pricing">Pricing</a></li>
@@ -712,6 +795,7 @@
       <div class="ticker-item">Small Brands & Businesses <span class="ticker-dot">◆</span></div>
       <div class="ticker-item">Fast Turnaround <span class="ticker-dot">◆</span></div>
       <div class="ticker-item">Starting at <strong>$2/hr</strong> <span class="ticker-dot">◆</span></div>
+      <div class="ticker-item">📸 <strong>@parth_sowthpaw</strong> <span class="ticker-dot">◆</span></div>
       <!-- Duplicate for seamless loop -->
       <div class="ticker-item"><strong>100+</strong> Videos Edited <span class="ticker-dot">◆</span></div>
       <div class="ticker-item"><strong>Adobe Premiere Pro</strong> <span class="ticker-dot">◆</span></div>
@@ -720,14 +804,92 @@
       <div class="ticker-item">Small Brands & Businesses <span class="ticker-dot">◆</span></div>
       <div class="ticker-item">Fast Turnaround <span class="ticker-dot">◆</span></div>
       <div class="ticker-item">Starting at <strong>$2/hr</strong> <span class="ticker-dot">◆</span></div>
+      <div class="ticker-item">📸 <strong>@parth_sowthpaw</strong> <span class="ticker-dot">◆</span></div>
     </div>
   </div>
+
+  <!-- WORK / VIDEOS -->
+  <section id="work">
+    <div class="section-label">
+      <div class="line"></div>
+      <span class="section-num">01</span>
+      <span>Selected Work</span>
+    </div>
+    <h2 class="section-title reveal">My<br>Edits</h2>
+    <div class="work-grid">
+
+      <!-- Video 1 -->
+      <div class="video-card reveal" onclick="togglePlay(this)">
+        <video src="sped_ramp_2__1.mp4" preload="metadata" playsinline loop></video>
+        <div class="video-overlay">
+          <span class="video-label">Speed Ramp Edit</span>
+          <span class="video-title">Speed Ramp</span>
+        </div>
+        <div class="play-btn">▶</div>
+        <div class="video-controls">
+          <button class="ctrl-btn" onclick="event.stopPropagation(); toggleMute(this)">🔇</button>
+          <div class="progress-bar" onclick="event.stopPropagation(); seekVideo(event, this)">
+            <div class="progress-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video 2 -->
+      <div class="video-card reveal reveal-delay-1" onclick="togglePlay(this)">
+        <video src="lokesh_mt_15_1.mp4" preload="metadata" playsinline loop></video>
+        <div class="video-overlay">
+          <span class="video-label">Brand Edit</span>
+          <span class="video-title">MT 15</span>
+        </div>
+        <div class="play-btn">▶</div>
+        <div class="video-controls">
+          <button class="ctrl-btn" onclick="event.stopPropagation(); toggleMute(this)">🔇</button>
+          <div class="progress-bar" onclick="event.stopPropagation(); seekVideo(event, this)">
+            <div class="progress-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video 3 -->
+      <div class="video-card reveal reveal-delay-2" onclick="togglePlay(this)">
+        <video src="Comp_1_2.mp4" preload="metadata" playsinline loop></video>
+        <div class="video-overlay">
+          <span class="video-label">Motion Graphic</span>
+          <span class="video-title">Aprilia RS 457</span>
+        </div>
+        <div class="play-btn">▶</div>
+        <div class="video-controls">
+          <button class="ctrl-btn" onclick="event.stopPropagation(); toggleMute(this)">🔇</button>
+          <div class="progress-bar" onclick="event.stopPropagation(); seekVideo(event, this)">
+            <div class="progress-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video 4 -->
+      <div class="video-card reveal reveal-delay-3" onclick="togglePlay(this)">
+        <video src="gt_650.mp4" preload="metadata" playsinline loop></video>
+        <div class="video-overlay">
+          <span class="video-label">Automotive Edit</span>
+          <span class="video-title">GT 650</span>
+        </div>
+        <div class="play-btn">▶</div>
+        <div class="video-controls">
+          <button class="ctrl-btn" onclick="event.stopPropagation(); toggleMute(this)">🔇</button>
+          <div class="progress-bar" onclick="event.stopPropagation(); seekVideo(event, this)">
+            <div class="progress-fill"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
 
   <!-- SKILLS -->
   <section id="skills">
     <div class="section-label">
       <div class="line"></div>
-      <span class="section-num">01</span>
+      <span class="section-num">02</span>
       <span>My Toolkit</span>
     </div>
     <h2 class="section-title reveal">Skills &<br>Expertise</h2>
@@ -799,7 +961,7 @@
   <section id="services">
     <div class="section-label">
       <div class="line"></div>
-      <span class="section-num">02</span>
+      <span class="section-num">03</span>
       <span>What I Do</span>
     </div>
     <h2 class="section-title reveal">Services</h2>
@@ -867,7 +1029,7 @@
   <section id="pricing">
     <div class="section-label">
       <div class="line"></div>
-      <span class="section-num">03</span>
+      <span class="section-num">04</span>
       <span>Packages</span>
     </div>
     <h2 class="section-title reveal">Simple,<br>Honest Pricing</h2>
@@ -1007,7 +1169,39 @@
     }, { threshold: 0.12 });
     reveals.forEach(el => observer.observe(el));
 
-    // Skill bars
+    // Video player
+    function togglePlay(card) {
+      const video = card.querySelector('video');
+      if (video.paused) {
+        // Pause all others
+        document.querySelectorAll('.video-card video').forEach(v => {
+          if (v !== video) { v.pause(); v.closest('.video-card').classList.remove('playing'); }
+        });
+        video.play();
+        card.classList.add('playing');
+        // Track progress
+        video.addEventListener('timeupdate', () => {
+          const fill = card.querySelector('.progress-fill');
+          if (fill && video.duration) fill.style.width = (video.currentTime / video.duration * 100) + '%';
+        });
+      } else {
+        video.pause();
+        card.classList.remove('playing');
+      }
+    }
+    function toggleMute(btn) {
+      const video = btn.closest('.video-card').querySelector('video');
+      video.muted = !video.muted;
+      btn.textContent = video.muted ? '🔇' : '🔊';
+    }
+    function seekVideo(e, bar) {
+      const video = bar.closest('.video-card').querySelector('video');
+      const rect = bar.getBoundingClientRect();
+      const pct = (e.clientX - rect.left) / rect.width;
+      video.currentTime = pct * video.duration;
+    }
+
+
     const bars = document.querySelectorAll('.skill-bar-fill');
     const barObserver = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -1019,5 +1213,7 @@
     }, { threshold: 0.5 });
     bars.forEach(b => barObserver.observe(b));
   </script>
+</body>
+</html>
 </body>
 </html>
