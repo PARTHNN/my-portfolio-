@@ -1,6 +1,4 @@
-
-    
-      <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -642,4 +640,509 @@
     }
     .reveal {
       opacity: 0; transform: translateY(30px);
-     
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      nav { padding: 20px 24px; }
+      .nav-links { display: none; }
+      #hero { padding: 0 24px; }
+      section { padding: 80px 24px; }
+      #stats { padding: 60px 24px; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .services-layout { grid-template-columns: 1fr; }
+      #about { grid-template-columns: 1fr; }
+      .about-visual { padding: 80px 24px; min-height: 300px; }
+      .about-text { padding: 60px 24px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; }
+      .hero-scroll { left: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grain"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">PS ✦ EDITS</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-lines"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span>Video Editor</span>
+        <div class="badge">Available for Work</div>
+      </div>
+      <h1 class="hero-title">
+        Frame by<br>
+        <em>Frame.</em>
+      </h1>
+      <p class="hero-sub">
+        I craft compelling video content that stops the scroll —
+        from brand reels to full-length edits. 100+ videos delivered.
+        Zero compromises on quality.
+      </p>
+      <div class="hero-ctas">
+        <a href="#pricing" class="btn-primary">View Packages</a>
+        <a href="#contact" class="btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <div class="ticker-item"><strong>100+</strong> Videos Edited <span class="ticker-dot">◆</span></div>
+      <div class="ticker-item"><strong>Adobe Premiere Pro</strong> <span class="ticker-dot">◆</span></div>
+      <div class="ticker-item"><strong>After Effects</strong> <span class="ticker-dot">◆</span></div>
+      <div class="ticker-item"><strong>CapCut Pro</strong> <span class="ticker-dot">◆</span></div>
+      <div class="ticker-item">Small Brands & Businesses <span class="ticker-dot">◆</span></div>
+      <div class="ticker-item">Fast Turnaround <span class="ticker-dot">◆</span></div>
+      <div class="ticker-item">Starting at <strong>$2/hr</strong> <span class="ticker-dot">◆</span></div>
+      <div class="ticker-item">📸 <strong>@parth_sowthpaw</strong> <span class="ticker-dot">◆</span></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="ticker-item"><strong>100+</strong> Videos Edited <span class="ticker-dot">◆</span></div>
+      <div class="ticker-item"><strong>Adobe Premiere Pro</strong> <span class="ticker-dot">◆</span></div>
+      <div class="ticker-item"><strong>After Effects</strong> <span class="ticker-dot">◆</span></div>
+      <div class="ticker-item"><strong>CapCut Pro</strong> <span class="ticker-dot">◆</span></div>
+      <div class="ticker-item">Small Brands & Businesses <span class="ticker-dot">◆</span></div>
+      <div class="ticker-item">Fast Turnaround <span class="ticker-dot">◆</span></div>
+      <div class="ticker-item">Starting at <strong>$2/hr</strong> <span class="ticker-dot">◆</span></div>
+      <div class="ticker-item">📸 <strong>@parth_sowthpaw</strong> <span class="ticker-dot">◆</span></div>
+    </div>
+  </div>
+
+  <!-- WORK / VIDEOS -->
+  <section id="work">
+    <div class="section-label">
+      <div class="line"></div>
+      <span class="section-num">01</span>
+      <span>Selected Work</span>
+    </div>
+    <h2 class="section-title reveal">My<br>Edits</h2>
+    <div class="work-grid">
+
+      <!-- Video 1 -->
+      <div class="video-card reveal">
+        <iframe src="https://drive.google.com/file/d/1XPq2XnfFzYiifnH1-lVXH6FoYDUTXRAN/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <div class="video-info">
+          <div>
+            <span class="video-title">Reel Edit</span>
+          </div>
+          <span class="video-num">01</span>
+        </div>
+      </div>
+
+      <!-- Video 2 -->
+      <div class="video-card reveal reveal-delay-1">
+        <iframe src="https://drive.google.com/file/d/1bupjoacCB1zenIYm1hU_QArtN8xcJo4z/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <div class="video-info">
+          <div>
+            <span class="video-title">MT 15</span>
+          </div>
+          <span class="video-num">02</span>
+        </div>
+      </div>
+
+      <!-- Video 3 -->
+      <div class="video-card reveal reveal-delay-2">
+        <iframe src="https://drive.google.com/file/d/1cwU5M3ImZAI97Z49aPoBIgainc9m7QLI/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <div class="video-info">
+          <div>
+            <span class="video-label">Automotive Edit</span>
+            <span class="video-title">Aprilia RS 457</span>
+          </div>
+          <span class="video-num">03</span>
+        </div>
+      </div>
+
+      <!-- Video 4 -->
+      <div class="video-card reveal reveal-delay-3">
+        <iframe src="https://drive.google.com/file/d/1IsCGE5TNKrvcSfM4WEFfRJYcFrNu2J7D/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <div class="video-info">
+          <div>
+            <span class="video-label">Automotive Edit</span>
+            <span class="video-title">Mad Max 390</span>
+          </div>
+          <span class="video-num">04</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label">
+      <div class="line"></div>
+      <span class="section-num">02</span>
+      <span>My Toolkit</span>
+    </div>
+    <h2 class="section-title reveal">Skills &<br>Expertise</h2>
+    <div class="skills-grid">
+
+      <div class="skill-card reveal">
+        <span class="skill-icon">🎬</span>
+        <span class="skill-tag">Pro Level</span>
+        <h3>CapCut</h3>
+        <p>Expert-level editing on CapCut — fast-paced reels, trending transitions, text animations, and social-first formats optimized for engagement.</p>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>Proficiency</span><span>95%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal reveal-delay-1">
+        <span class="skill-icon">🎞️</span>
+        <span class="skill-tag">Intermediate</span>
+        <h3>Premiere Pro</h3>
+        <p>Professional timeline editing, color grading, multi-cam sync, audio mixing, and export optimization for brands and content creators.</p>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>Proficiency</span><span>75%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="75"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal reveal-delay-2">
+        <span class="skill-icon">✨</span>
+        <span class="skill-tag">Intermediate</span>
+        <h3>After Effects</h3>
+        <p>Motion graphics, kinetic typography, logo animations, and compositing effects that elevate your brand's visual storytelling.</p>
+        <div class="skill-bar-wrap">
+          <div class="skill-bar-label"><span>Proficiency</span><span>70%</span></div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="70"></div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div id="stats">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <span class="stat-num">100+</span>
+        <span class="stat-label">Videos Edited</span>
+        <p class="stat-desc">Delivered for brands &amp; businesses</p>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <span class="stat-num">3</span>
+        <span class="stat-label">Pro Tools</span>
+        <p class="stat-desc">CapCut · Premiere · After Effects</p>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <span class="stat-num">$2</span>
+        <span class="stat-label">Starting Rate / hr</span>
+        <p class="stat-desc">Affordable &amp; transparent pricing</p>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <span class="stat-num">$49</span>
+        <span class="stat-label">Monthly Package</span>
+        <p class="stat-desc">Best value for ongoing brands</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-label">
+      <div class="line"></div>
+      <span class="section-num">03</span>
+      <span>What I Do</span>
+    </div>
+    <h2 class="section-title reveal">Services</h2>
+    <div class="services-layout">
+      <div class="service-intro reveal">
+        <p class="big-quote">"Every frame tells a story. I make sure yours is unforgettable."</p>
+        <p>I work primarily with small businesses and growing brands who need high-quality video content without agency-level pricing. Whether it's a quick reel or a full brand video — I deliver on time, every time.</p>
+      </div>
+      <div class="service-list reveal reveal-delay-1">
+        <div class="service-item">
+          <div class="service-item-left">
+            <span class="service-num">01</span>
+            <div>
+              <h4>Social Media Reels</h4>
+              <p>Instagram, YouTube Shorts, TikTok — vertical-first editing</p>
+            </div>
+          </div>
+          <span class="service-arrow">→</span>
+        </div>
+        <div class="service-item">
+          <div class="service-item-left">
+            <span class="service-num">02</span>
+            <div>
+              <h4>Brand Promo Videos</h4>
+              <p>Product showcases, brand storytelling, ads</p>
+            </div>
+          </div>
+          <span class="service-arrow">→</span>
+        </div>
+        <div class="service-item">
+          <div class="service-item-left">
+            <span class="service-num">03</span>
+            <div>
+              <h4>Motion Graphics</h4>
+              <p>Animated intros, titles, lower thirds via After Effects</p>
+            </div>
+          </div>
+          <span class="service-arrow">→</span>
+        </div>
+        <div class="service-item">
+          <div class="service-item-left">
+            <span class="service-num">04</span>
+            <div>
+              <h4>Color Grading</h4>
+              <p>Cinematic LUTs and correction via Premiere Pro</p>
+            </div>
+          </div>
+          <span class="service-arrow">→</span>
+        </div>
+        <div class="service-item">
+          <div class="service-item-left">
+            <span class="service-num">05</span>
+            <div>
+              <h4>Raw Footage Editing</h4>
+              <p>Cut-down, sync, transitions, SFX, music</p>
+            </div>
+          </div>
+          <span class="service-arrow">→</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="section-label">
+      <div class="line"></div>
+      <span class="section-num">04</span>
+      <span>Packages</span>
+    </div>
+    <h2 class="section-title reveal">Simple,<br>Honest Pricing</h2>
+    <div class="pricing-grid">
+
+      <div class="pricing-card reveal">
+        <span class="plan-name">Hourly</span>
+        <div class="plan-price"><sup>$</sup>2<span>/hour</span></div>
+        <p class="plan-desc">Perfect for one-off projects or trying out my work before committing.</p>
+        <ul class="plan-features">
+          <li class="plan-feature">Pay only for hours worked</li>
+          <li class="plan-feature">CapCut, Premiere or After Effects</li>
+          <li class="plan-feature">1 round of revisions</li>
+          <li class="plan-feature">Social-ready export</li>
+          <li class="plan-feature">Flexible turnaround</li>
+        </ul>
+        <a href="mailto:ps7011485621@gmail.com" class="pricing-cta">Start a Project</a>
+      </div>
+
+      <div class="pricing-card featured reveal reveal-delay-1">
+        <span class="popular-tag">Best Value</span>
+        <span class="plan-name">Monthly Retainer</span>
+        <div class="plan-price"><sup>$</sup>49<span>/month</span></div>
+        <p class="plan-desc">Ideal for small businesses that need consistent, high-quality video content every month.</p>
+        <ul class="plan-features">
+          <li class="plan-feature">Unlimited project requests</li>
+          <li class="plan-feature">Priority turnaround</li>
+          <li class="plan-feature">All 3 tools available</li>
+          <li class="plan-feature">Unlimited revisions</li>
+          <li class="plan-feature">Dedicated support</li>
+          <li class="plan-feature">Multi-platform delivery</li>
+        </ul>
+        <a href="mailto:ps7011485621@gmail.com" class="pricing-cta">Get This Deal</a>
+      </div>
+
+      <div class="pricing-card reveal reveal-delay-2">
+        <span class="plan-name">Custom</span>
+        <div class="plan-price" style="font-size:2.5rem; padding-top:0.4rem;">Let's Talk</div>
+        <p class="plan-desc">Got a specific project in mind? I'll put together a custom quote just for you.</p>
+        <ul class="plan-features">
+          <li class="plan-feature">Scoped to your exact needs</li>
+          <li class="plan-feature">Bulk video discounts</li>
+          <li class="plan-feature">Long-form edits welcome</li>
+          <li class="plan-feature">Milestone-based delivery</li>
+          <li class="plan-feature">Flexible payment</li>
+        </ul>
+        <a href="mailto:ps7011485621@gmail.com" class="pricing-cta">Send Enquiry</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" style="padding:0;">
+    <div class="about-visual">
+      <div class="about-avatar">PS</div>
+    </div>
+    <div class="about-text">
+      <div class="section-label" style="margin-bottom:20px;">
+        <div class="line"></div>
+        <span style="font-size:0.65rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);">04 — About</span>
+      </div>
+      <h2 class="reveal">The Editor<br>Behind the Work</h2>
+      <p class="reveal">I'm a passionate video editor who has worked on 100+ projects for small businesses and emerging brands. My focus is always on making your content stand out — whether it's a 15-second reel or a full-length brand film.</p>
+      <p class="reveal reveal-delay-1">I bring professional-grade editing at freelancer-friendly prices. No fluff, no bloated agency fees — just clean, impactful videos that work for your audience.</p>
+      <div class="about-tags reveal reveal-delay-2">
+        <span class="about-tag">Fast Delivery</span>
+        <span class="about-tag">Revision-Friendly</span>
+        <span class="about-tag">Brand-Focused</span>
+        <span class="about-tag">Social Media Expert</span>
+        <span class="about-tag">100+ Projects</span>
+        <span class="about-tag">Affordable</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label" style="justify-content:center; margin-bottom:20px;">
+      <div class="line"></div>
+      <span style="font-size:0.65rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);">05 — Contact</span>
+      <div class="line"></div>
+    </div>
+    <h2 class="reveal">Let's Create<br><em>Together</em></h2>
+    <p class="reveal">Ready to take your video content to the next level? Drop me a message and let's discuss your project.</p>
+    <div class="contact-cards">
+      <a href="mailto:ps7011485621@gmail.com" class="contact-card reveal">
+        <span class="contact-card-icon">✉️</span>
+        <span class="contact-card-label">Email</span>
+        <span class="contact-card-value">ps7011485621@gmail.com</span>
+      </a>
+      <a href="tel:+917011485621" class="contact-card reveal reveal-delay-1">
+        <span class="contact-card-icon">📞</span>
+        <span class="contact-card-label">Phone / WhatsApp</span>
+        <span class="contact-card-value">+91 7011 485 621</span>
+      </a>
+      <a href="https://instagram.com/parth_sowthpaw" target="_blank" class="contact-card reveal reveal-delay-2">
+        <span class="contact-card-icon">📸</span>
+        <span class="contact-card-label">Instagram</span>
+        <span class="contact-card-value">@parth_sowthpaw</span>
+      </a>
+    </div>
+    <a href="mailto:ps7011485621@gmail.com" class="btn-primary reveal">✦ Hire Me Now</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">PS ✦ EDITS</span>
+    <span class="footer-copy">© 2025 · Video Editor Portfolio</span>
+    <div class="footer-links">
+      <a href="mailto:ps7011485621@gmail.com">Email</a>
+      <a href="tel:+917011485621">Call</a>
+      <a href="https://instagram.com/parth_sowthpaw" target="_blank">Instagram</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Video player
+    function togglePlay(card) {
+      const video = card.querySelector('video');
+      if (video.paused) {
+        // Pause all others first
+        document.querySelectorAll('.video-card').forEach(c => {
+          const v = c.querySelector('video');
+          if (v !== video) { v.pause(); v.muted = true; c.classList.remove('playing'); }
+        });
+        // Unmute and play
+        video.muted = false;
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            card.classList.add('playing');
+          }).catch(() => {
+            // If audio blocked, play muted first then unmute
+            video.muted = true;
+            video.play().then(() => {
+              card.classList.add('playing');
+              video.muted = false;
+            });
+          });
+        }
+        // Track progress
+        video.addEventListener('timeupdate', () => {
+          const fill = card.querySelector('.progress-fill');
+          if (fill && video.duration) {
+            fill.style.width = (video.currentTime / video.duration * 100) + '%';
+          }
+        });
+      } else {
+        video.pause();
+        card.classList.remove('playing');
+      }
+    }
+
+    function toggleMute(btn) {
+      event.stopPropagation();
+      const video = btn.closest('.video-card').querySelector('video');
+      video.muted = !video.muted;
+      btn.textContent = video.muted ? '🔇' : '🔊';
+    }
+
+    function seekVideo(e, bar) {
+      event.stopPropagation();
+      const video = bar.closest('.video-card').querySelector('video');
+      if (!video.duration) return;
+      const rect = bar.getBoundingClientRect();
+      const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+      video.currentTime = pct * video.duration;
+    }
+
+    // Show error if video fails to load
+    document.querySelectorAll('.video-card video').forEach(video => {
+      video.addEventListener('error', () => {
+        const overlay = video.closest('.video-card').querySelector('.video-overlay');
+        if (overlay) {
+          const label = overlay.querySelector('.video-label');
+          if (label) label.textContent = '⚠ Upload video to GitHub';
+        }
+      });
+      // Set muted false by default so audio works on click
+      video.muted = false;
+    });
+
+
+    const bars = document.querySelectorAll('.skill-bar-fill');
+    const barObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.width = e.target.dataset.width + '%';
+          barObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    bars.forEach(b => barObserver.observe(b));
+  </script>
+</body>
+</html>
